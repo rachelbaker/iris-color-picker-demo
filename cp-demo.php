@@ -86,11 +86,11 @@ add_action( 'admin_enqueue_scripts', 'iris_cpdemo_admin_enqueue_scripts' );
      */
     function iris_cpdemo_admin_enqueue_scripts($hook) {
         // bail early if this is not the plugin option screen
-        if( 'settings_page_color-picker-demo/cp-demo' !== $hook ) {
+        if( 'settings_page_iris-color-picker-demo/cp-demo' !== $hook ) {
             return;
         }
-        // load the wp-color-picker script and style
         wp_enqueue_script( 'wp-color-picker' );
-        wp_enqueue_script( 'cp_demo-custom', plugins_url( 'cp-demo-script.min.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ), '1.0', true );
+        // load the minified version of custom script
+        wp_enqueue_script( 'cp_demo-custom', plugins_url( 'js/cp-demo-script.min.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ), '1.1', true );
         wp_enqueue_style( 'wp-color-picker' );
     }
